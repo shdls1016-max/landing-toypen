@@ -50,21 +50,18 @@ img {
 .announcementTrack {
   display: flex;
   width: max-content;
-  animation: ticker 22s linear infinite;
+  animation: ticker 88s linear infinite;
 }
 
 .announcementGroup {
   display: flex;
   flex: none;
   align-items: center;
-  justify-content: space-around;
-  gap: 36px;
-  min-width: max(100vw, 760px);
-  padding: 0 20px;
+  width: max-content;
 }
 
 .announcementGroup span {
-  padding: 8px 0;
+  padding: 8px 38px;
 }
 
 .siteHeader {
@@ -83,26 +80,23 @@ img {
 
 .brand {
   width: max-content;
-  font-size: 27px;
-  font-weight: 1000;
-  letter-spacing: -0.07em;
-}
-
-.brand i,
-.brand em {
-  font-style: normal;
-}
-
-.brand i {
   color: var(--blue);
+  font-family: Arial Black, Arial, sans-serif;
+  font-size: 31px;
+  font-weight: 1000;
+  letter-spacing: -0.065em;
+  line-height: 1;
 }
 
-.brand em {
-  margin-left: 3px;
-  padding: 0 5px;
-  border-radius: 5px;
+.brand span {
+  display: inline-block;
+  margin-left: 2px;
+  padding: 1px 5px 2px;
+  border-radius: 3px;
   background: var(--lime);
   color: var(--ink);
+  letter-spacing: -0.07em;
+  line-height: 1;
 }
 
 .nav {
@@ -143,14 +137,25 @@ img {
   background: var(--lime);
   font-size: 12px;
   font-weight: 1000;
+  line-height: 1;
 }
 
-.shopPill span {
+.shopPill .shopLabel,
+.shopPill .shopArrow {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   color: inherit;
-  font-size: 18px;
   line-height: 1;
+}
+
+.shopPill .shopLabel {
+  font-size: 12px;
+}
+
+.shopPill .shopArrow {
+  font-size: 18px;
+  transform: translateY(-1px);
 }
 
 .hero {
@@ -784,7 +789,7 @@ img {
   border: 1.5px solid var(--ink);
   border-radius: 999px;
   background: var(--white);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 1000;
 }
 
@@ -986,9 +991,11 @@ footer > div a {
 
 @media (max-width: 720px) {
   .announcementGroup {
-    gap: 25px;
-    min-width: 700px;
-    padding-inline: 18px;
+    width: max-content;
+  }
+
+  .announcementGroup span {
+    padding-inline: 38px;
   }
 
   .siteHeader {

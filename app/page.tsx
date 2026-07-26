@@ -1,4 +1,13 @@
 const shopUrl = "https://shdls1016-max.github.io/toypen/";
+const announcementItems = [
+  "✦ 5만원 이상 무료배송",
+  "✦ 오늘 주문하면 딴짓력 +100",
+  "✦ NEW PEN DROP",
+];
+const announcementLoop = Array.from(
+  { length: 8 },
+  () => announcementItems,
+).flat();
 
 const playItems = [
   {
@@ -67,21 +76,21 @@ export default function Home() {
       <div className="announcement">
         <div className="announcementTrack" aria-label="플레이노트 쇼핑 혜택">
           <div className="announcementGroup">
-            <span>✦ 5만원 이상 무료배송</span>
-            <span>✦ 오늘 주문하면 딴짓력 +100</span>
-            <span>✦ NEW PEN DROP</span>
+            {announcementLoop.map((item, index) => (
+              <span key={`announcement-a-${index}`}>{item}</span>
+            ))}
           </div>
           <div className="announcementGroup" aria-hidden="true">
-            <span>✦ 5만원 이상 무료배송</span>
-            <span>✦ 오늘 주문하면 딴짓력 +100</span>
-            <span>✦ NEW PEN DROP</span>
+            {announcementLoop.map((item, index) => (
+              <span key={`announcement-b-${index}`}>{item}</span>
+            ))}
           </div>
         </div>
       </div>
 
       <header className="siteHeader">
         <a className="brand" href="#top" aria-label="플레이노트 홈">
-          PLAY<i>NOTE</i><em>!</em>
+          PLAY<span>NOTE</span>
         </a>
         <nav className="nav" aria-label="주요 메뉴">
           <a href="#play-menu">PEN</a>
@@ -89,7 +98,8 @@ export default function Home() {
           <a href="#pick">PICK</a>
         </nav>
         <a className="shopPill" href={shopUrl} target="_blank" rel="noreferrer">
-          SHOP <span aria-hidden="true">→</span>
+          <span className="shopLabel">SHOP</span>
+          <span className="shopArrow" aria-hidden="true">→</span>
         </a>
       </header>
 
@@ -149,7 +159,13 @@ export default function Home() {
         </div>
         <div className="playGrid">
           {playItems.map((item) => (
-            <article className={`playCard ${item.color}`} key={item.number}>
+            <a
+              className={`playCard ${item.color}`}
+              href={shopUrl}
+              target="_blank"
+              rel="noreferrer"
+              key={item.number}
+            >
               <div className="playCardTop">
                 <span>{item.number}</span>
                 <span>{item.tag}</span>
@@ -160,7 +176,7 @@ export default function Home() {
               </div>
               <h3>{item.title.split("\n").map((line) => <span key={line}>{line}</span>)}</h3>
               <p>{item.description}</p>
-            </article>
+            </a>
           ))}
         </div>
       </section>
@@ -245,7 +261,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <a className="brand footerBrand" href="#top">PLAY<i>NOTE</i><em>!</em></a>
+        <a className="brand footerBrand" href="#top">PLAY<span>NOTE</span></a>
         <p>평범한 하루를 한 칸 더 재밌게 채우는 문구점.</p>
         <div>
           <span>© 2026 PLAYNOTE</span>
