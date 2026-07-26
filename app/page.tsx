@@ -66,21 +66,24 @@ export default function Home() {
     <main>
       <div className="announcement">
         <div className="announcementTrack" aria-label="플레이노트 쇼핑 혜택">
-          <span>✦ 5만원 이상 무료배송</span>
-          <span>✦ 오늘 주문하면 딴짓력 +100</span>
-          <span>✦ NEW PEN DROP</span>
-          <span aria-hidden="true">✦ 5만원 이상 무료배송</span>
-          <span aria-hidden="true">✦ 오늘 주문하면 딴짓력 +100</span>
-          <span aria-hidden="true">✦ NEW PEN DROP</span>
+          <div className="announcementGroup">
+            <span>✦ 5만원 이상 무료배송</span>
+            <span>✦ 오늘 주문하면 딴짓력 +100</span>
+            <span>✦ NEW PEN DROP</span>
+          </div>
+          <div className="announcementGroup" aria-hidden="true">
+            <span>✦ 5만원 이상 무료배송</span>
+            <span>✦ 오늘 주문하면 딴짓력 +100</span>
+            <span>✦ NEW PEN DROP</span>
+          </div>
         </div>
       </div>
 
       <header className="siteHeader">
         <a className="brand" href="#top" aria-label="플레이노트 홈">
-          PLAY<span>NOTE!</span>
+          PLAY<i>NOTE</i><em>!</em>
         </a>
         <nav className="nav" aria-label="주요 메뉴">
-          <a href="#play-menu">NEW</a>
           <a href="#play-menu">PEN</a>
           <a href="#break-club">PLAY</a>
           <a href="#pick">PICK</a>
@@ -112,9 +115,6 @@ export default function Home() {
             <a className="button buttonPrimary" href="#play-menu">
               오늘의 딴짓 고르기 <Arrow />
             </a>
-            <a className="textLink" href={shopUrl} target="_blank" rel="noreferrer">
-              쇼핑몰 바로가기 <span aria-hidden="true">→</span>
-            </a>
           </div>
         </div>
 
@@ -135,22 +135,11 @@ export default function Home() {
             <img src="/products/product-16.jpg" alt="마그네틱 피젯 변신펜" />
             <figcaption>공부 50 / 딴짓 10</figcaption>
           </figure>
-          <div className="scribble" aria-hidden="true">
-            <span>놀 준비</span>
-            <strong>됐어?</strong>
-          </div>
         </div>
         <div className="scrollCue" aria-hidden="true">
           SCROLL TO PLAY <span>↓</span>
         </div>
       </section>
-
-      <div className="marquee" aria-hidden="true">
-        <div>
-          PLAY MORE · WRITE BETTER · SQUEEZE IT · CLICK IT · SHARE IT ·
-          PLAY MORE · WRITE BETTER · SQUEEZE IT · CLICK IT · SHARE IT ·
-        </div>
-      </div>
 
       <section className="playMenu section" id="play-menu">
         <div className="sectionIntro">
@@ -256,7 +245,7 @@ export default function Home() {
       </section>
 
       <footer>
-        <a className="brand footerBrand" href="#top">PLAY<span>NOTE!</span></a>
+        <a className="brand footerBrand" href="#top">PLAY<i>NOTE</i><em>!</em></a>
         <p>평범한 하루를 한 칸 더 재밌게 채우는 문구점.</p>
         <div>
           <span>© 2026 PLAYNOTE</span>

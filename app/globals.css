@@ -53,8 +53,18 @@ img {
   animation: ticker 22s linear infinite;
 }
 
-.announcementTrack span {
-  padding: 8px 38px;
+.announcementGroup {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-around;
+  gap: 36px;
+  min-width: max(100vw, 760px);
+  padding: 0 20px;
+}
+
+.announcementGroup span {
+  padding: 8px 0;
 }
 
 .siteHeader {
@@ -78,21 +88,21 @@ img {
   letter-spacing: -0.07em;
 }
 
-.brand span {
-  position: relative;
+.brand i,
+.brand em {
+  font-style: normal;
+}
+
+.brand i {
   color: var(--blue);
 }
 
-.brand span::after {
-  position: absolute;
-  z-index: -1;
-  right: -5px;
-  bottom: -1px;
-  left: -4px;
-  height: 8px;
+.brand em {
+  margin-left: 3px;
+  padding: 0 5px;
+  border-radius: 5px;
   background: var(--lime);
-  content: "";
-  transform: rotate(-2deg);
+  color: var(--ink);
 }
 
 .nav {
@@ -126,7 +136,7 @@ img {
   justify-self: end;
   display: inline-flex;
   align-items: center;
-  gap: 14px;
+  gap: 8px;
   padding: 10px 12px 10px 17px;
   border: var(--line);
   border-radius: 999px;
@@ -136,13 +146,11 @@ img {
 }
 
 .shopPill span {
-  display: grid;
-  width: 23px;
-  height: 23px;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--ink);
-  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  color: inherit;
+  font-size: 18px;
+  line-height: 1;
 }
 
 .hero {
@@ -203,7 +211,7 @@ img {
 .heroStamp strong {
   padding: 8px 12px;
   border: var(--line);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.07em;
 }
 
@@ -273,18 +281,15 @@ img {
 }
 
 .buttonLime {
-  margin: 58px auto 0;
+  width: max-content;
+  margin-top: 58px;
+  margin-right: 0;
+  margin-left: max(0px, calc((100% - 1320px) / 2));
   background: var(--lime);
 }
 
 .button > span {
   font-size: 20px;
-}
-
-.textLink {
-  border-bottom: 2px solid var(--ink);
-  font-size: 13px;
-  font-weight: 900;
 }
 
 .heroPlayground {
@@ -402,7 +407,7 @@ img {
   border-radius: 50%;
   background: var(--coral);
   color: var(--white);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 1000;
   transform: rotate(10deg);
 }
@@ -434,23 +439,6 @@ img {
   transform: rotate(-13deg);
 }
 
-.scribble {
-  position: absolute;
-  bottom: 7%;
-  left: 12%;
-  color: var(--white);
-  font-size: 18px;
-  font-weight: 800;
-  transform: rotate(-8deg);
-}
-
-.scribble strong {
-  display: block;
-  color: var(--lime);
-  font-size: 35px;
-  line-height: 1;
-}
-
 .scrollCue {
   position: absolute;
   bottom: 18px;
@@ -466,21 +454,6 @@ img {
 
 .scrollCue span {
   font-size: 22px;
-}
-
-.marquee {
-  overflow: hidden;
-  border-bottom: var(--line);
-  background: var(--lime);
-  padding: 13px 0;
-  font-size: 16px;
-  font-weight: 1000;
-  white-space: nowrap;
-}
-
-.marquee div {
-  width: max-content;
-  animation: ticker 18s linear infinite;
 }
 
 .section {
@@ -511,7 +484,7 @@ img {
   font-size: clamp(48px, 6vw, 86px);
   font-weight: 1000;
   letter-spacing: -0.075em;
-  line-height: 0.93;
+  line-height: 1.2;
 }
 
 .sectionIntro > p:last-child {
@@ -560,7 +533,7 @@ img {
   align-items: center;
   justify-content: space-between;
   padding-bottom: 14px;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 1000;
   letter-spacing: 0.08em;
 }
@@ -941,7 +914,7 @@ footer > div {
   padding-top: 20px;
   border-top: 1px solid #3d3d3d;
   color: #777;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
 }
 
@@ -1012,8 +985,10 @@ footer > div a {
 }
 
 @media (max-width: 720px) {
-  .announcementTrack span {
-    padding-inline: 24px;
+  .announcementGroup {
+    gap: 25px;
+    min-width: 700px;
+    padding-inline: 18px;
   }
 
   .siteHeader {
@@ -1095,7 +1070,6 @@ footer > div a {
     left: 4%;
   }
 
-  .scribble,
   .scrollCue {
     display: none;
   }
@@ -1116,6 +1090,7 @@ footer > div a {
   .pickHeader h2,
   .finalCta h2 {
     font-size: 50px;
+    line-height: 1.2;
   }
 
   .sectionIntro > p:last-child,
